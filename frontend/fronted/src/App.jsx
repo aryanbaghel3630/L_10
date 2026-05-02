@@ -7,7 +7,7 @@ function App() {
   const [notes, setnotes] = useState([{}]);
   
   function fetchnotes(){
-    axios.get('http://localhost:3000/api/notes1')
+    axios.get('https://l-10-8h4u.onrender.com/api/notes1')
     .then((res) => {
       console.log(res.data)
       console.log(res.data.message)
@@ -25,7 +25,7 @@ useEffect(() => {
     e.preventDefault();
     const {title,description}=e.target.elements; //form ke andar name title, description destucte karge input agayge
     console.log(title.value,description.value)
-    axios.post("http://localhost:3000/api/notes1",{
+    axios.post("https://l-10-8h4u.onrender.com/api/notes1",{
       title:title.value,
       description:description.value
 
@@ -38,7 +38,7 @@ useEffect(() => {
   }
   function handledeletenote(noteid){
    console.log(noteid)
-   axios.delete("http://localhost:3000/api/notes1/"+noteid )
+   axios.delete("https://l-10-8h4u.onrender.com/api/notes1/"+noteid )
    .then((res)=>{
        console.log(res.data.message)
        fetchnotes()
@@ -48,7 +48,7 @@ useEffect(() => {
   function updatedescription(noteid){
     console.log(noteid)
    const updescription= prompt("enter decsription")
-    axios.patch("http://localhost:3000/api/notes1/"+noteid,{
+    axios.patch("https://l-10-8h4u.onrender.com/api/notes1/"+noteid,{
       description:updescription
     })
     .then((res)=>{
